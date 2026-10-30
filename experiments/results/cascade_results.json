@@ -1,0 +1,30 @@
+[
+ {
+  "p_fail": 0.05,
+  "availability_general": 0.99999375,
+  "availability_stock": 0.9999996875,
+  "answered_by_fallback": 0.04999375,
+  "h7_supported": true
+ },
+ {
+  "p_fail": 0.1,
+  "availability_general": 0.9999,
+  "availability_stock": 0.99999,
+  "answered_by_fallback": 0.0999,
+  "h7_supported": true
+ },
+ {
+  "p_fail": 0.2,
+  "availability_general": 0.9984,
+  "availability_stock": 0.99968,
+  "answered_by_fallback": 0.19840000000000002,
+  "h7_supported": false
+ },
+ {
+  "p_fail": 0.3,
+  "availability_general": 0.9919,
+  "availability_stock": 0.99757,
+  "answered_by_fallback": 0.2919,
+  "h7_supported": false
+ }
+]

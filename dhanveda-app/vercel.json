@@ -1,0 +1,13 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "regions": ["sin1"],
+  "functions": {
+    "app/api/claude/route.ts":          { "maxDuration": 60 },
+    "app/api/venture/claude/route.ts":  { "maxDuration": 60 },
+    "app/api/screener/migrate/route.ts":{ "maxDuration": 60 },
+    "app/api/admin/aggregate/route.ts": { "maxDuration": 60 }
+  }
+}

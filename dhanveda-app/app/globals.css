@@ -1,0 +1,383 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── DESIGN TOKENS ─────────────────────────────────────────────────────────── */
+:root {
+  /* Backgrounds — light mint, matching home page */
+  --bg:          #F0FDF4;
+  --bg-sidebar:  #022C22;
+  --bg-card:     #ffffff;
+  --bg-card-2:   #F8FFF6;
+  --bg-input:    #ffffff;
+
+  /* Borders */
+  --border:        rgba(5,150,105,0.15);
+  --border-mid:    rgba(5,150,105,0.28);
+  --border-accent: rgba(5,150,105,0.45);
+
+  /* Accent — Emerald (DhanVeda identity) */
+  --accent:        #059669;
+  --accent-dark:   #064E3B;
+  --accent-bright: #10b981;
+  --accent-muted:  rgba(5,150,105,0.08);
+
+  /* Status */
+  --gold:  #D97706;
+  --red:   #DC2626;
+  --blue:  #3b82f6;
+
+  /* Text — dark emerald scale */
+  --text-1: #064E3B;
+  --text-2: #374151;
+  --text-3: #6B7280;
+
+  /* Legacy aliases */
+  --green:        #059669;
+  --teal:         #10b981;
+  --dark-bg:      #022C22;
+  --dark-card:    #064E3B;
+  --dark-border:  rgba(217,119,6,0.2);
+  --pub-bg:       #F0FDF4;
+  --pub-dark:     #064E3B;
+  --pub-darker:   #022C22;
+}
+
+/* ── BASE ──────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── SCROLLBAR ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(16,185,129,0.4); }
+
+/* ── CARDS ─────────────────────────────────────────────────────────────────── */
+.dv-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+.dv-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 1px rgba(16,185,129,0.08) inset,
+              0 8px 32px rgba(0,0,0,0.35);
+}
+.dv-card-static {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* ── BUTTONS ───────────────────────────────────────────────────────────────── */
+.dv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 10px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.dv-btn-primary {
+  background: var(--accent);
+  color: white;
+  padding: 10px 20px;
+}
+.dv-btn-primary:hover:not(:disabled) {
+  background: var(--accent-bright);
+  box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+  transform: translateY(-1px);
+}
+.dv-btn-primary:active:not(:disabled) { transform: translateY(0); }
+.dv-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── INPUTS ────────────────────────────────────────────────────────────────── */
+.dv-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 0.875rem;
+  color: var(--text-1);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.dv-input::placeholder { color: var(--text-3); }
+.dv-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.12);
+}
+.dv-select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* ── SPINNER ───────────────────────────────────────────────────────────────── */
+@keyframes dvSpin { to { transform: rotate(360deg); } }
+.dv-spinner {
+  width: 32px; height: 32px;
+  border: 3px solid rgba(16,185,129,0.15);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: dvSpin 0.75s linear infinite;
+}
+
+/* ── RATIO TABLE ────────────────────────────────────────────────────────────── */
+.ratio-table { width: 100%; border-collapse: collapse; }
+.ratio-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.ratio-name { font-size: 13px; font-weight: 600; color: var(--text-1); }
+.ratio-hint { font-size: 11px; color: var(--text-3); margin-top: 2px; line-height: 1.4; }
+.ratio-val  { font-size: 14px; font-weight: 700; text-align: right; }
+.ratio-val.good    { color: var(--accent); }
+.ratio-val.bad     { color: var(--red); }
+.ratio-val.neutral { color: var(--gold); }
+.ratio-sig { font-size: 10px; display: block; text-align: right; margin-top: 2px; }
+.ratio-sig.sg { color: var(--accent); }
+.ratio-sig.sb { color: var(--red); }
+.ratio-sig.sn { color: var(--text-3); }
+
+/* ── PROGRESS BAR ────────────────────────────────────────────────────────────── */
+.progress-bar {
+  height: 6px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 4px 0;
+}
+.dv-main .progress-bar {
+  background: rgba(5,150,105,0.12);
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── QUIZ OPTIONS ────────────────────────────────────────────────────────────── */
+.quiz-opt {
+  padding: 10px 14px; margin-bottom: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer; font-size: 13px; color: var(--text-1);
+  background: transparent;
+  transition: all 0.15s ease;
+}
+.quiz-opt:hover { border-color: var(--accent); background: var(--accent-muted); }
+.quiz-opt.correct { border-color: var(--accent); background: rgba(16,185,129,0.14); color: var(--accent); }
+.quiz-opt.wrong   { border-color: var(--red); background: rgba(239,68,68,0.08); color: var(--red); }
+.quiz-opt.disabled { pointer-events: none; }
+
+/* ── TRADINGVIEW CHART ────────────────────────────────────────────────────────── */
+.tv-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
+.tv-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.tv-card { transition: border-color 0.2s ease; }
+.tv-card:hover { border-color: rgba(16,185,129,0.3) !important; }
+
+/* ── VERDICT BOX ─────────────────────────────────────────────────────────────── */
+.verdict-box {
+  background: linear-gradient(135deg,
+    rgba(16,185,129,0.08) 0%,
+    rgba(245,158,11,0.05) 100%
+  );
+  border: 1px solid rgba(16,185,129,0.2);
+  border-radius: 14px;
+  padding: 20px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.verdict-box:hover {
+  border-color: rgba(16,185,129,0.4);
+  box-shadow: 0 4px 24px rgba(16,185,129,0.08);
+}
+
+/* ── BADGE ───────────────────────────────────────────────────────────────────── */
+.dv-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.03em;
+  padding: 3px 10px; border-radius: 99px;
+}
+
+/* ── SECTION LABEL ───────────────────────────────────────────────────────────── */
+.dv-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+
+/* ── STAT CHIP ───────────────────────────────────────────────────────────────── */
+.dv-stat {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.dv-stat:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+/* ── DIVIDER ─────────────────────────────────────────────────────────────────── */
+.dv-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+/* ── ANIMATIONS ──────────────────────────────────────────────────────────────── */
+@keyframes dvFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes dvFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes dvSlideRight {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes dvScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.anim-in { animation: dvFadeUp 0.3s cubic-bezier(0.4,0,0.2,1) both; }
+.anim-in > * { animation: dvFadeUp 0.3s cubic-bezier(0.4,0,0.2,1) both; }
+.anim-in > *:nth-child(1) { animation-delay: 0ms; }
+.anim-in > *:nth-child(2) { animation-delay: 60ms; }
+.anim-in > *:nth-child(3) { animation-delay: 120ms; }
+.anim-in > *:nth-child(4) { animation-delay: 180ms; }
+.anim-in > *:nth-child(5) { animation-delay: 240ms; }
+.anim-in > *:nth-child(6) { animation-delay: 300ms; }
+.anim-in > *:nth-child(7) { animation-delay: 360ms; }
+.anim-in > *:nth-child(8) { animation-delay: 420ms; }
+
+@keyframes dvPulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:.5; transform:scale(0.82); }
+}
+.dv-pulse { animation: dvPulse 2s ease-in-out infinite; }
+
+@keyframes dvSpin2 { to { transform: rotate(360deg); } }
+
+/* ── GLOW EFFECTS ────────────────────────────────────────────────────────────── */
+.glow-green { box-shadow: 0 0 20px rgba(16,185,129,0.2); }
+.glow-gold  { box-shadow: 0 0 20px rgba(245,158,11,0.2); }
+
+/* ── SIDEBAR ACTIVE GLOW ─────────────────────────────────────────────────────── */
+.nav-active-glow {
+  box-shadow: inset 3px 0 0 var(--accent),
+              -2px 0 12px rgba(16,185,129,0.15);
+}
+
+/* ── GLASS CARD ──────────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(22, 28, 42, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── GRADIENT TEXT ───────────────────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── DASHBOARD LIGHT THEME ───────────────────────────────────────────────────── */
+/* Mirrors the home page's #F0FDF4 / #064E3B palette */
+.dv-main {
+  background: #F0FDF4;
+  color: #064E3B;
+}
+
+/* Flip Tailwind text-white → dark emerald for non-form elements on light backgrounds */
+.dv-main .text-white:not(button):not(a):not(input):not(textarea):not(select) { color: #064E3B !important; }
+.dv-main .text-white\/80:not(button):not(a):not(input):not(textarea):not(select) { color: #1F2937 !important; }
+.dv-main .text-white\/70:not(button):not(a):not(input):not(textarea):not(select) { color: #374151 !important; }
+.dv-main .text-white\/60:not(button):not(a):not(input):not(textarea):not(select) { color: #4B5563 !important; }
+.dv-main .text-white\/50:not(button):not(a):not(input):not(textarea):not(select) { color: #6B7280 !important; }
+.dv-main .text-white\/40:not(button):not(a):not(input):not(textarea):not(select) { color: #9CA3AF !important; }
+.dv-main .text-white\/30:not(button):not(a):not(input):not(textarea):not(select) { color: #9CA3AF !important; }
+.dv-main .text-white\/25:not(button):not(a):not(input):not(textarea):not(select) { color: #9CA3AF !important; }
+.dv-main .text-white\/20:not(button):not(a):not(input):not(textarea):not(select) { color: #B0B8C4 !important; }
+
+/* Form fields in dark-card areas: light grey fieldbox, white text */
+.dv-main input.text-white,
+.dv-main textarea.text-white,
+.dv-main select.text-white {
+  background: rgba(255,255,255,0.08) !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
+
+/* Placeholder text */
+.dv-main .placeholder-white\/30::placeholder { color: #9CA3AF !important; }
+.dv-main input.placeholder-white\/30::placeholder,
+.dv-main textarea.placeholder-white\/30::placeholder { color: rgba(255,255,255,0.35) !important; }
+
+/* Buttons inside .dv-main keep white text (coloured background provides contrast) */
+.dv-main button.text-white { color: #ffffff !important; }
+.dv-main a.text-white  { color: #ffffff !important; }
+
+/* Table/section borders */
+.dv-main .ratio-table td { border-bottom-color: rgba(5,150,105,0.12); }
+
+/* Cards in light mode */
+.dv-main .dv-card,
+.dv-main .dv-card-static {
+  background: #ffffff;
+  border-color: rgba(5,150,105,0.15);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.dv-main .dv-card:hover {
+  border-color: rgba(5,150,105,0.35);
+  box-shadow: 0 4px 16px rgba(5,150,105,0.08);
+}
+
+/* Inputs in light mode */
+.dv-main .dv-input {
+  background: #ffffff;
+  border-color: rgba(5,150,105,0.2);
+  color: #064E3B;
+}
+.dv-main .dv-input::placeholder { color: #9CA3AF; }
+.dv-main .dv-input:focus {
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(5,150,105,0.1);
+}
+
+/* Verdict box */
+.dv-main .verdict-box {
+  background: linear-gradient(135deg, rgba(5,150,105,0.06) 0%, rgba(217,119,6,0.03) 100%);
+  border-color: rgba(5,150,105,0.2);
+}
+
+/* Spinner */
+.dv-main .dv-spinner {
+  border-color: rgba(5,150,105,0.15);
+  border-top-color: #059669;
+}

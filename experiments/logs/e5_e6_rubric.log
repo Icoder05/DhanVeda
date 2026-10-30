@@ -1,0 +1,67 @@
+medCI 39 39 p25 29 p75 49 p05 13 p95 62 min 5 max 86
+NC 20000 median 39 mean 38.62 sd 14.66 bands {
+  Weak: 7707,
+  Avoid: 5745,
+  Neutral: 5250,
+  Moderate: 1166,
+  Good: 126,
+  Exceptional: 6
+} gaps { pe: 3813, rsi: 4803, pledge: 605, w52: 13620, total: 0 } gap share 0.461
+[
+  {
+    rel: 0,
+    meanSD: 0,
+    ci95half: 0,
+    bandFlipShare: 0,
+    medAbsDev: 0,
+    p90AbsDev: 0
+  },
+  {
+    rel: 0.05,
+    meanSD: 2.56,
+    ci95half: 1.83,
+    bandFlipShare: 0.425,
+    medAbsDev: 2,
+    p90AbsDev: 6
+  },
+  {
+    rel: 0.1,
+    meanSD: 3.71,
+    ci95half: 2.65,
+    bandFlipShare: 0.624,
+    medAbsDev: 3,
+    p90AbsDev: 8
+  },
+  {
+    rel: 0.15,
+    meanSD: 4.62,
+    ci95half: 3.31,
+    bandFlipShare: 0.754,
+    medAbsDev: 4,
+    p90AbsDev: 10
+  },
+  {
+    rel: 0.2,
+    meanSD: 5.35,
+    ci95half: 3.83,
+    bandFlipShare: 0.821,
+    medAbsDev: 4,
+    p90AbsDev: 11
+  },
+  {
+    rel: 0.3,
+    meanSD: 6.83,
+    ci95half: 4.89,
+    bandFlipShare: 0.86,
+    medAbsDev: 6,
+    p90AbsDev: 14
+  }
+]
+cat means {
+  A: '10.36',
+  B: '5.23',
+  C: '10.58',
+  D: '8.09',
+  E: '5.77',
+  ded: '-1.51'
+}

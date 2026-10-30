@@ -1,0 +1,161 @@
+{
+ "NC": 20000,
+ "median": 39,
+ "mean": 38.61815,
+ "sd": 14.659869923256798,
+ "bands": {
+  "Weak": 7707,
+  "Avoid": 5745,
+  "Neutral": 5250,
+  "Moderate": 1166,
+  "Good": 126,
+  "Exceptional": 6
+ },
+ "hist": [
+  {
+   "bin": 0,
+   "n": 0
+  },
+  {
+   "bin": 5,
+   "n": 632
+  },
+  {
+   "bin": 10,
+   "n": 550
+  },
+  {
+   "bin": 15,
+   "n": 905
+  },
+  {
+   "bin": 20,
+   "n": 1381
+  },
+  {
+   "bin": 25,
+   "n": 1856
+  },
+  {
+   "bin": 30,
+   "n": 2360
+  },
+  {
+   "bin": 35,
+   "n": 2619
+  },
+  {
+   "bin": 40,
+   "n": 2645
+  },
+  {
+   "bin": 45,
+   "n": 2324
+  },
+  {
+   "bin": 50,
+   "n": 1850
+  },
+  {
+   "bin": 55,
+   "n": 1361
+  },
+  {
+   "bin": 60,
+   "n": 832
+  },
+  {
+   "bin": 65,
+   "n": 407
+  },
+  {
+   "bin": 70,
+   "n": 203
+  },
+  {
+   "bin": 75,
+   "n": 55
+  },
+  {
+   "bin": 80,
+   "n": 15
+  },
+  {
+   "bin": 85,
+   "n": 5
+  },
+  {
+   "bin": 90,
+   "n": 0
+  },
+  {
+   "bin": 95,
+   "n": 0
+  }
+ ],
+ "gaps": {
+  "pe": 3813,
+  "rsi": 4803,
+  "pledge": 605,
+  "w52": 13620,
+  "total": 0
+ },
+ "noise": [
+  {
+   "rel": 0,
+   "meanSD": 0,
+   "ci95half": 0,
+   "bandFlipShare": 0,
+   "medAbsDev": 0,
+   "p90AbsDev": 0
+  },
+  {
+   "rel": 0.05,
+   "meanSD": 2.56,
+   "ci95half": 1.83,
+   "bandFlipShare": 0.425,
+   "medAbsDev": 2,
+   "p90AbsDev": 6
+  },
+  {
+   "rel": 0.1,
+   "meanSD": 3.71,
+   "ci95half": 2.65,
+   "bandFlipShare": 0.624,
+   "medAbsDev": 3,
+   "p90AbsDev": 8
+  },
+  {
+   "rel": 0.15,
+   "meanSD": 4.62,
+   "ci95half": 3.31,
+   "bandFlipShare": 0.754,
+   "medAbsDev": 4,
+   "p90AbsDev": 10
+  },
+  {
+   "rel": 0.2,
+   "meanSD": 5.35,
+   "ci95half": 3.83,
+   "bandFlipShare": 0.821,
+   "medAbsDev": 4,
+   "p90AbsDev": 11
+  },
+  {
+   "rel": 0.3,
+   "meanSD": 6.83,
+   "ci95half": 4.89,
+   "bandFlipShare": 0.86,
+   "medAbsDev": 6,
+   "p90AbsDev": 14
+  }
+ ],
+ "cat": {
+  "A": "10.36",
+  "B": "5.23",
+  "C": "10.58",
+  "D": "8.09",
+  "E": "5.77",
+  "ded": "-1.51"
+ }
+}

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "DhanVeda: Research and Experimental Analysis Report"
+abstract: "An evidence-based evaluation of a multi-provider LLM platform for Indian retail investors: five-tier LLM routing, rule-preserving prompt compression, ESG scoring, and seven seeded, reproducible experiments."
+type: software
+authors:
+  - family-names: Chitakana
+    given-names: Kishan Phani
+    alias: Icoder05
+repository-code: "https://github.com/Icoder05/DhanVeda"
+url: "https://arthasift.vercel.app"
+license: MIT
+date-released: "2026-10-30"
+keywords:
+  - large language models
+  - LLM routing
+  - prompt compression
+  - tokenization
+  - ESG scoring
+  - Indian equity market
+  - reproducibility

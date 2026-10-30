@@ -1,0 +1,4 @@
+p=0.05  general=99.9994%  stock=99.99997%  fallback=5.0%
+p=0.10  general=99.9900%  stock=99.99900%  fallback=10.0%
+p=0.20  general=99.8400%  stock=99.96800%  fallback=19.8%
+p=0.30  general=99.1900%  stock=99.75700%  fallback=29.2%

@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-10-25",
+  "environment": {
+    "node": "24.19.0",
+    "python": "3.14.6",
+    "tiktoken": "0.14.0",
+    "matplotlib": "3.11.2",
+    "os": "Windows 10 Pro 10.0.19045"
+  },
+  "code_identity_sha256_prefix": {
+    "dhanveda-app/lib/claude.ts": "272d588a977e6a06",
+    "dhanveda-app/lib/esgScoring.ts": "fb2756f10f738a77",
+    "dhanveda-app/lib/stockSeed.ts": "57680a094ce00195",
+    "dhanveda-app/app/(dashboard)/research/page.tsx": "1005ea2e16fb7f41"
+  },
+  "experiments": {
+    "E1": {
+      "name": "Token audit",
+      "scripts": ["extract.js", "tok.py"],
+      "test_stock": "Reliance Industries",
+      "tokenizers": ["cl100k_base", "o200k_base"],
+      "n_prompts": 13,
+      "seed": null,
+      "output": "results/tokens.json"
+    },
+    "E2-E4": {
+      "name": "ESG engine audit, +/-1 G shock, Monte Carlo of pledge/holding",
+      "script": "esg_exp.ts",
+      "universe": 532,
+      "monte_carlo_draws": 10000,
+      "g_shock": [-1, 1],
+      "prng": "LCG a=1664525 c=1013904223 m=2^32",
+      "seed": 20261025,
+      "assumed_distributions": {
+        "promoter_pledge_pct": "0 w.p. 0.72; else mixture U(0,10) / U(10,35) / U(35,75)",
+        "promoter_holding_pct": "U(20, 75)"
+      },
+      "output": "results/esg_results.json"
+    },
+    "E5-E6": {
+      "name": "DV-rubric population simulation and repeated-run noise trial",
+      "script": "rubric_exp.js",
+      "synthetic_companies": 20000,
+      "noise_trial": { "companies": 1000, "runs": 10, "relative_noise": [0, 0.05, 0.10, 0.15, 0.20, 0.30] },
+      "prng": "LCG a=1664525 c=1013904223 m=2^32, Box-Muller normals",
+      "seed": 7,
+      "output": "results/rubric_results.json"
+    },
+    "E7": {
+      "name": "Cascade availability (analytic, independent failures)",
+      "script": "cascade_exp.py",
+      "per_tier_failure_rate": [0.05, 0.10, 0.20, 0.30],
+      "tiers": { "general": 4, "stock": 5 },
+      "output": "results/cascade_results.json"
+    }
+  },
+  "hypothesis_thresholds": {
+    "H1": "token reduction >= 50% and prompt + 2500 reserved < 6000 TPM",
+    "H2": "mean |full - compressed| <= 3 points, paired p > 0.05 (live trial P1)",
+    "H3": "within-company SD <= 2 and band unchanged in >= 90% of companies",
+    "H4": "sector eta-squared < 0.80",
+    "H5": "<= 10% of securities change tier under +/-1 G",
+    "H6": "all-median company scores 50 +/- 5",
+    "H7": "availability >= 99.9% at 10% per-tier failure"
+  }
+}

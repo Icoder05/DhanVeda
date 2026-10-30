@@ -1,0 +1,6 @@
+# Python dependencies for the experiments (E1, E7) and figures.
+# The web app's dependencies are in dhanveda-app/package.json.
+tiktoken==0.14.0
+matplotlib==3.11.2
+# Only needed to rebuild the report DOCX (report/build.py):
+python-docx==1.2.0

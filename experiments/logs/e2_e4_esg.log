@@ -1,0 +1,47 @@
+N 532 baseline tiers { 'A+': 1, A: 36, 'B+': 143, B: 151, C: 201, D: 0 }
+by cap {
+  Large: { 'A+': 1, A: 7, 'B+': 48, B: 57, C: 37, D: 0 },
+  Mid: { 'A+': 0, A: 14, 'B+': 60, B: 59, C: 92, D: 0 },
+  Small: { 'A+': 0, A: 15, 'B+': 35, B: 35, C: 72, D: 0 }
+}
+risk { 'Very Low': 36, Low: 242, Medium: 155, High: 85, 'Very High': 14 }
+eta^2 sector (baseline) 0.9639 overrides used 16
+G+1 flips 105 G-1 flips 143 any 247
+MC [
+  { tier: 'A+', baseline: 1, mean: 1.6, sd: 0.52, p025: 1, p975: 2 },
+  { tier: 'A', baseline: 36, mean: 74.8, sd: 5.28, p025: 65, p975: 85 },
+  {
+    tier: 'B+',
+    baseline: 143,
+    mean: 122.2,
+    sd: 7,
+    p025: 109,
+    p975: 136
+  },
+  {
+    tier: 'B',
+    baseline: 151,
+    mean: 176.9,
+    sd: 7.93,
+    p025: 161,
+    p975: 192
+  },
+  {
+    tier: 'C',
+    baseline: 201,
+    mean: 150.3,
+    sd: 6.84,
+    p025: 137,
+    p975: 164
+  },
+  { tier: 'D', baseline: 0, mean: 6.2, sd: 2.44, p025: 2, p975: 11 }
+]
+stability hist [
+  { range: '0-0.5', n: 0 },
+  { range: '0.5-0.6', n: 43 },
+  { range: '0.6-0.7', n: 263 },
+  { range: '0.7-0.8', n: 3 },
+  { range: '0.8-0.9', n: 142 },
+  { range: '0.9-0.95', n: 26 },
+  { range: '0.95-1', n: 55 }
+] mean stability 0.745 share <0.8 309

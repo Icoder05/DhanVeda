@@ -1,0 +1,23 @@
+# Dependencies and builds
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+
+# Secrets - never commit
+.env
+.env.*
+!.env.example
+
+# Local tooling
+.vercel/
+.claude/
+.DS_Store
+Thumbs.db
+~$*
+
+# Superseded first draft of the report (the current one is docs/research-report.pdf)
+/DhanVeda_Research_Report.pdf
